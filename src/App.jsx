@@ -8,9 +8,25 @@ const App = () => {
   const handleClick = () => {
     setSamosas(samosas + multiplier)
   }
+
   const buyDoubleStuffed = () => {
-    if (count >= 10) {
+    if (samosas >= 10) {
       setMultiplier(multiplier * 2);
+      setSamosas(samosas - 10)
+    }
+  }
+  
+  const buyPartyPack = () => {
+    if (samosas >= 100) {
+      setMultiplier(multiplier * 5);
+      setSamosas(samosas - 100)
+    }
+  }
+
+  const buyFullFeast = () => {
+    if (samosas >= 1000) {
+      setMultiplier(multiplier * 10);
+      setSamosas(samosas - 1000)
     }
   }
   
@@ -30,12 +46,12 @@ const App = () => {
         <div className="upgrade">
           <h3>Party Pack 🎉</h3>
           <p>5x per click</p>
-          <button>100 samosas</button>
+          <button onClick={buyPartyPack}>100 samosas</button>
         </div>
         <div className="upgrade">
           <h3>Full Feast 👩🏽‍🍳</h3>
           <p>10x per click</p>
-          <button>1000 samosas</button>
+          <button onClick={buyFullFeast}>1000 samosas</button>
         </div>
       </div>
     </div>
